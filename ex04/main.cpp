@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sidrissi <sidrissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/05 21:37:32 by sidrissi          #+#    #+#             */
-/*   Updated: 2025/08/15 14:29:38 by sidrissi         ###   ########.fr       */
+/*   Created: 2025/08/15 11:24:59 by sidrissi          #+#    #+#             */
+/*   Updated: 2025/08/15 17:36:39 by sidrissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "sed.hpp"
 
-# ifndef	ZOMBIE_HPP
-# define	ZOMBIE_HPP
-
-#include <iostream>
-
-class	Zombie
+int	main(int ac, char *av[])
 {
-	private:
-		std::string	name;
-	public:
-		void	annonuce(void);
-	Zombie(std::string name);
-	~Zombie();
-};
+	if (ac != 4)
+		return ((std::cout << "need 4 arguments\n"), 1);
 
-void	randomChump( std::string name );
-Zombie*	newZombie( std::string name );
+	std::string	ex_file;
+	std::string	s1;
+	std::string	s2;
 
-# endif
+	ex_file = std::string(av[1]);
+	s1 = std::string(av[2]);
+	s2 = std::string(av[3]);
+	if ((s1.empty()) || (s2.empty()))
+		return ((std::cout << "is empty\n"), 0);
+	if (readWriteFile(ex_file, s1, s2))
+		return (1);
+	return (0);
+}
+

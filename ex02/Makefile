@@ -11,7 +11,7 @@ all: $(NAME)
 $(NAME): $(OBJECT)
 	$(CC) $(CXXFLAGS) $(OBJECT) -o $(NAME)
 
-%.o: %.cpp *.hpp *.h
+%.o: %.cpp
 	$(CC) $(CXXFLAGS) -c $< -o $@
 
 clean:

@@ -2,16 +2,16 @@ CC = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-FILES = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+FILES = main.cpp sed.cpp
 OBJECT = $(FILES:.cpp=.o)
-NAME = Zombie
+NAME = replace
 
 all: $(NAME)
 
 $(NAME): $(OBJECT)
 	$(CC) $(CXXFLAGS) $(OBJECT) -o $(NAME)
 
-%.o: %.cpp *.hpp 
+%.o: %.cpp *.hpp
 	$(CC) $(CXXFLAGS) -c $< -o $@
 
 clean:
